@@ -17,6 +17,7 @@
 		E072B3A91DD2B77E005822AA /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = E072B3A81DD2B77E005822AA /* CurrentWeather.swift */; };
 		E072B3AB1DD68D5F005822AA /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = E072B3AA1DD68D5F005822AA /* Forecast.swift */; };
 		E072B3B21DD703DE005822AA /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E072B3B11DD703DD005822AA /* WeatherCell.swift */; };
+		E072B3B41DD7B673005822AA /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = E072B3B31DD7B673005822AA /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		E072B3A81DD2B77E005822AA /* CurrentWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrentWeather.swift; path = ../CurrentWeather.swift; sourceTree = "<group>"; };
 		E072B3AA1DD68D5F005822AA /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		E072B3B11DD703DD005822AA /* WeatherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
+		E072B3B31DD7B673005822AA /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		EDBAB7E483B6F63AB9932BD9 /* Pods-RainyShinyCloudy2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RainyShinyCloudy2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RainyShinyCloudy2/Pods-RainyShinyCloudy2.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,6 +145,7 @@
 				E072B3A41DD2B572005822AA /* Constants.swift */,
 				E072B3A81DD2B77E005822AA /* CurrentWeather.swift */,
 				E072B3AA1DD68D5F005822AA /* Forecast.swift */,
+				E072B3B31DD7B673005822AA /* Location.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				E072B3A91DD2B77E005822AA /* CurrentWeather.swift in Sources */,
 				E072B3A51DD2B572005822AA /* Constants.swift in Sources */,
 				E072B3AB1DD68D5F005822AA /* Forecast.swift in Sources */,
+				E072B3B41DD7B673005822AA /* Location.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

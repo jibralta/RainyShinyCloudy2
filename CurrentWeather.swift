@@ -13,7 +13,7 @@ import Alamofire
 
 class CurrentWeather {
     
-    // instantiate
+    // instantiate class properties
     var cityName: String?
     var weatherType: String?
     var currentTemp: Double?
