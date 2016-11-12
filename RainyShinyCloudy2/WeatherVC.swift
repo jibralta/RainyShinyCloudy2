@@ -60,6 +60,8 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                         self.forecasts.append(forecast)
                         print("**\(obj)")
                     }
+                    self.forecasts.remove(at: 0)    // the first forecast in the tableview will be the data for tomorrow.
+                    self.tableView.reloadData()
                 }
             }
             completed() // tells it when its done and the app will finish.
@@ -70,13 +72,18 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return forecasts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell", for: indexPath)
-        
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell", for: indexPath) as? WeatherCell {
+            
+            let forecast = forecasts [indexPath.row]
+            cell.configureCell(forecast: forecast)
+            return cell
+        } else {
+            return WeatherCell()
+        }
     }
     
     func updateMainUI() {
@@ -89,15 +96,6 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         locationLabel.text = currentWeather.cityName
         currentWeatherImage.image = UIImage(named: currentWeather.weatherType!) // same name as the currentWeatherTypeLabel
     }
-//    
-//    func updateTableViewUI() {
-//        
-//        dateLabel.text = currentWeather.date
-//        currentTempLabel.text = "\(currentWeather.currentTemp!)"
-//        currentWeatherTypeLabel.text = currentWeather.weatherType
-//        locationLabel.text = currentWeather.cityName
-//        currentWeatherImage.image = UIImage(named: currentWeather.weatherType!) // same name as the currentWeatherTypeLabel
-//    }
 
 
 }
