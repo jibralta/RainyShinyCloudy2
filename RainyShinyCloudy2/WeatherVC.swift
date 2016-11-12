@@ -37,7 +37,9 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         currentWeather = CurrentWeather()
         
         currentWeather.downloadWeatherDetails {
-            self.updateMainUI() // calling self because within a closure??
+            self.downloadForecastData {
+                self.updateMainUI() // calling self because within a closure?? from this view controller/class.
+            }
         }
     }
     
@@ -56,9 +58,11 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     for obj in list { // parses through the data and places in weatherDict which is created in Forecast Class
                         let forecast = Forecast(weatherDict: obj)
                         self.forecasts.append(forecast)
+                        print("**\(obj)")
                     }
                 }
             }
+            completed() // tells it when its done and the app will finish.
         }
     }
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -78,13 +82,22 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func updateMainUI() {
         // text for IBOutlets...
         // IBOutletname.text = currentWeather.variablenametype...
-         
+        
         dateLabel.text = currentWeather.date
         currentTempLabel.text = "\(currentWeather.currentTemp!)"
         currentWeatherTypeLabel.text = currentWeather.weatherType
         locationLabel.text = currentWeather.cityName
         currentWeatherImage.image = UIImage(named: currentWeather.weatherType!) // same name as the currentWeatherTypeLabel
     }
+//    
+//    func updateTableViewUI() {
+//        
+//        dateLabel.text = currentWeather.date
+//        currentTempLabel.text = "\(currentWeather.currentTemp!)"
+//        currentWeatherTypeLabel.text = currentWeather.weatherType
+//        locationLabel.text = currentWeather.cityName
+//        currentWeatherImage.image = UIImage(named: currentWeather.weatherType!) // same name as the currentWeatherTypeLabel
+//    }
 
 
 }

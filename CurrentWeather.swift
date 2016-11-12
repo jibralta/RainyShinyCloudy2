@@ -67,7 +67,7 @@ class CurrentWeather {
         Alamofire.request(currentWeatherURL).responseJSON { response in
             let result = response.result
             
-            print(response)
+            print("***\(response)") //if ask to print result, if successful, would print SUCCESS only. Response would include data after SUCCESS.
             
             if let dict = result.value as? Dictionary<String, AnyObject> {
                 // looks for the key in the dictionary that we want
