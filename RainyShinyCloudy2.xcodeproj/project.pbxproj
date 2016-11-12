@@ -16,7 +16,8 @@
 		E06AEE451DD283DB008BCF58 /* RainyShinyCloudy2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06AEE441DD283DB008BCF58 /* RainyShinyCloudy2Tests.swift */; };
 		E06AEE501DD283DB008BCF58 /* RainyShinyCloudy2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06AEE4F1DD283DB008BCF58 /* RainyShinyCloudy2UITests.swift */; };
 		E072B3A51DD2B572005822AA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E072B3A41DD2B572005822AA /* Constants.swift */; };
-		E072B3A91DD2B77E005822AA /* currentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = E072B3A81DD2B77E005822AA /* currentWeather.swift */; };
+		E072B3A91DD2B77E005822AA /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = E072B3A81DD2B77E005822AA /* CurrentWeather.swift */; };
+		E072B3AB1DD68D5F005822AA /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = E072B3AA1DD68D5F005822AA /* Forecast.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,8 +55,9 @@
 		E06AEE4B1DD283DB008BCF58 /* RainyShinyCloudy2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RainyShinyCloudy2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E06AEE4F1DD283DB008BCF58 /* RainyShinyCloudy2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RainyShinyCloudy2UITests.swift; sourceTree = "<group>"; };
 		E06AEE511DD283DB008BCF58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E072B3A41DD2B572005822AA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		E072B3A81DD2B77E005822AA /* currentWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = currentWeather.swift; sourceTree = "<group>"; };
+		E072B3A41DD2B572005822AA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = ../Constants.swift; sourceTree = "<group>"; };
+		E072B3A81DD2B77E005822AA /* CurrentWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrentWeather.swift; path = ../CurrentWeather.swift; sourceTree = "<group>"; };
+		E072B3AA1DD68D5F005822AA /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
 		EDBAB7E483B6F63AB9932BD9 /* Pods-RainyShinyCloudy2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RainyShinyCloudy2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RainyShinyCloudy2/Pods-RainyShinyCloudy2.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,8 +100,6 @@
 		E06AEE231DD283DB008BCF58 = {
 			isa = PBXGroup;
 			children = (
-				E072B3A81DD2B77E005822AA /* currentWeather.swift */,
-				E072B3A41DD2B572005822AA /* Constants.swift */,
 				E06AEE2E1DD283DB008BCF58 /* RainyShinyCloudy2 */,
 				E06AEE431DD283DB008BCF58 /* RainyShinyCloudy2Tests */,
 				E06AEE4E1DD283DB008BCF58 /* RainyShinyCloudy2UITests */,
@@ -123,7 +123,9 @@
 			isa = PBXGroup;
 			children = (
 				E06AEE2F1DD283DB008BCF58 /* AppDelegate.swift */,
-				E06AEE311DD283DB008BCF58 /* WeatherVC.swift */,
+				E072B3AD1DD68DF6005822AA /* Model */,
+				E072B3AE1DD69030005822AA /* View */,
+				E072B3AC1DD68DDC005822AA /* Controller */,
 				E06AEE331DD283DB008BCF58 /* Main.storyboard */,
 				E06AEE361DD283DB008BCF58 /* Assets.xcassets */,
 				E06AEE381DD283DB008BCF58 /* LaunchScreen.storyboard */,
@@ -148,6 +150,31 @@
 				E06AEE511DD283DB008BCF58 /* Info.plist */,
 			);
 			path = RainyShinyCloudy2UITests;
+			sourceTree = "<group>";
+		};
+		E072B3AC1DD68DDC005822AA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E06AEE311DD283DB008BCF58 /* WeatherVC.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		E072B3AD1DD68DF6005822AA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E072B3A41DD2B572005822AA /* Constants.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		E072B3AE1DD69030005822AA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E072B3A81DD2B77E005822AA /* CurrentWeather.swift */,
+				E072B3AA1DD68D5F005822AA /* Forecast.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		E85BA3300801C534CACAEA34 /* Pods */ = {
@@ -349,8 +376,9 @@
 			files = (
 				E06AEE321DD283DB008BCF58 /* WeatherVC.swift in Sources */,
 				E06AEE301DD283DB008BCF58 /* AppDelegate.swift in Sources */,
-				E072B3A91DD2B77E005822AA /* currentWeather.swift in Sources */,
+				E072B3A91DD2B77E005822AA /* CurrentWeather.swift in Sources */,
 				E072B3A51DD2B572005822AA /* Constants.swift in Sources */,
+				E072B3AB1DD68D5F005822AA /* Forecast.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

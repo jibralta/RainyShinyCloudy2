@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -22,17 +23,44 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
+    var currentWeather = CurrentWeather() //creates generic class of CurrentWeather
+    var forecasts = [Forecast]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.dataSource = self
         tableView.delegate = self
         
-        print(CURRENT_WEATHER_URL)
+//        print(CURRENT_WEATHER_URL)
         
+        currentWeather = CurrentWeather()
+        
+        currentWeather.downloadWeatherDetails {
+            self.updateMainUI() // calling self because within a closure??
+        }
     }
     
+    func downloadForecastData(completed: @escaping DownloadComplete) {
+        //Downloading our forecast weather data for TableView
+        let forecastURL = URL(string: FORECAST_URL)!
+        Alamofire.request(forecastURL).responseJSON { response in
+            let result = response.result
 
+            //<key, value> where the key is a string and the values come in a variety of types.
+            if let dict = result.value as? Dictionary<String, AnyObject> {
+                
+                if let list = dict["list"] as? [Dictionary<String, AnyObject>] {
+                    
+                    // lowTemp and highTemp for each day. For every forecast, putting it into another dictionary                    
+                    for obj in list { // parses through the data and places in weatherDict which is created in Forecast Class
+                        let forecast = Forecast(weatherDict: obj)
+                        self.forecasts.append(forecast)
+                    }
+                }
+            }
+        }
+    }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -47,9 +75,16 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    
-    
-
+    func updateMainUI() {
+        // text for IBOutlets...
+        // IBOutletname.text = currentWeather.variablenametype...
+         
+        dateLabel.text = currentWeather.date
+        currentTempLabel.text = "\(currentWeather.currentTemp!)"
+        currentWeatherTypeLabel.text = currentWeather.weatherType
+        locationLabel.text = currentWeather.cityName
+        currentWeatherImage.image = UIImage(named: currentWeather.weatherType!) // same name as the currentWeatherTypeLabel
+    }
 
 
 }
